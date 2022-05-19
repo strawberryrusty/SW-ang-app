@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "/Users/prash/2022-projects/my-first-angapp/node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
