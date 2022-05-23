@@ -12,4 +12,11 @@ export class StarWarService{
       return char.side === chosenList;
     })
   }
+
+  onSideChosen(charInfo){
+    const pos = this.characters.findIndex((char) => {
+      return char.name === charInfo.name;
+    })
+    this.characters[pos].side = charInfo.side;
+  }
 }

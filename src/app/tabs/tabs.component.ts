@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarWarService } from '../star-wars.service';
 
 @Component({
   selector: 'app-tabs',
@@ -19,14 +20,10 @@ export class TabsComponent implements OnInit {
   }
 
   getCharacters() {
-
+   const swService = new StarWarService();
+   this.characters = swService.getCharacters(this.chosenList);
+   return this.characters;
   }
 
-  onSideChosen(charInfo){
-    const pos = this.characters.findIndex((char) => {
-      return char.name === charInfo.name;
-    })
-    this.characters[pos].side = charInfo.side;
-  }
 
 }
