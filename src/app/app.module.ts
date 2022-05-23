@@ -7,6 +7,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { StarWarService } from './star-wars.service';
+import { LogService } from './log.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { StarWarService } from './star-wars.service';
     FormsModule
 
   ],
-  providers: [StarWarService],
+  providers: [StarWarService, LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
