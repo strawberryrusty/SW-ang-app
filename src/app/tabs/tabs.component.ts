@@ -4,13 +4,17 @@ import { StarWarService } from '../star-wars.service';
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.css']
+  styleUrls: ['./tabs.component.css'],
+  providers: [StarWarService]
 })
 export class TabsComponent implements OnInit {
   characters = [];
   chosenList = 'all';
+  swService: StarWarService;
 
-  constructor() { }
+    constructor(swService : StarWarService) {
+    this.swService = swService;
+  }
 
   ngOnInit(): void {
   }
@@ -20,10 +24,9 @@ export class TabsComponent implements OnInit {
   }
 
   getCharacters() {
-   const swService = new StarWarService();
-   this.characters = swService.getCharacters(this.chosenList);
+
+   this.characters = this.swService.getCharacters(this.chosenList);
    return this.characters;
   }
-
 
 }
