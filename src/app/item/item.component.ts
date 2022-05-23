@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import { StarWarService } from '../star-wars.service';
 
 @Component({
@@ -8,7 +8,6 @@ import { StarWarService } from '../star-wars.service';
 })
 export class ItemComponent implements OnInit {
   @Input() character;
-  @Output() sideAssigned = new EventEmitter<{ name: string, side: string}>();
   swService : StarWarService
 
   constructor(swService : StarWarService) {
