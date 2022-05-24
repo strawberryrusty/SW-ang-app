@@ -21,7 +21,11 @@ export class CreateCharacterComponent implements OnInit {
   }
 
   onSubmit(submittedForm) {
+    if (submittedForm.invalid) {
+      return;
+    }
     // console.log(submittedForm.value);
+    // console.log(submittedForm);
     this.swService.addCharacter(submittedForm.value.name,submittedForm.value.side)
   }
 }
