@@ -9,6 +9,8 @@ import { ItemComponent } from './item/item.component';
 import { StarWarService } from './star-wars.service';
 import { LogService } from './log.service';
 import { CreateCharacterComponent } from './create-character/create-character.component';
+import { HeaderComponent } from './header/header.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,12 @@ import { CreateCharacterComponent } from './create-character/create-character.co
     TabsComponent,
     ListComponent,
     ItemComponent,
-    CreateCharacterComponent
+    CreateCharacterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
-
+    FormsModule,
   ],
   providers: [StarWarService, LogService],
   bootstrap: [AppComponent]
