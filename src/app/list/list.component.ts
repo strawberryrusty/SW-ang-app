@@ -1,5 +1,6 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit,Input, OnDestroy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { StarWarService } from '../star-wars.service';
 
 @Component({
@@ -7,11 +8,12 @@ import { StarWarService } from '../star-wars.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
   characters = [];
   activatedRoute: ActivatedRoute;
   swService: StarWarService;
   loadedSide = 'all';
+  subscription: Subscription;
 
   constructor(activatedRoute: ActivatedRoute, swService: StarWarService) {
     this.activatedRoute = activatedRoute;
@@ -25,10 +27,14 @@ export class ListComponent implements OnInit {
       this.loadedSide = params.side;
      }
     );
-    this.swService.charactersChanged.subscribe(
+   this.subscription = this.swService.charactersChanged.subscribe(
       () => {
         this.characters = this.swService.getCharacters(this.loadedSide);
       }
     );
   }
+
+   ngOnDestroy() {
+     this.subscription.unsubscribe();
+   }
 }
