@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { LogService } from "./log.service";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class StarWarService{
@@ -8,6 +9,7 @@ export class StarWarService{
     {name: 'Darth Vader', side: ''}
   ];
   private logService: LogService;
+  charactersChanged = new Subject<void>();
 
     constructor(logService: LogService) {
       this.logService = logService;
@@ -26,7 +28,8 @@ export class StarWarService{
     const pos = this.characters.findIndex((char) => {
       return char.name === charInfo.name;
     })
-    this.characters[pos].side = charInfo.side;
+    this.characters[pos].side = charInfo.side; //here is where we are switch the side of a character and assigning it to the character
+    this.charactersChanged.next();
     this.logService.writeLog('Changed side of ' + charInfo.name + ', new side:' + charInfo.side);
   }
 
