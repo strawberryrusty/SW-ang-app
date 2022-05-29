@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 
-import { CreateCharacterComponent } from "./create-character/create-character.component";
 import { ListComponent } from "./list/list.component";
 import { TabsComponent } from "./tabs/tabs.component";
+import { CreateCharacterComponent } from "./create-character/create-character.component";
 
 const routes = [
   { path: 'characters', component: TabsComponent, children: [
@@ -11,7 +11,7 @@ const routes = [
     { path: ':side', component: ListComponent }
   ]},
   { path: 'new-character', component: CreateCharacterComponent },
-  { path: '**', redirectTo: 'characters' }
+  { path: '**', redirectTo: '/characters' }
 ];
 
 @NgModule({
@@ -23,6 +23,4 @@ const routes = [
   ]
 
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}
