@@ -9,7 +9,6 @@ import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { StarWarService } from './star-wars.service';
 import { LogService } from './log.service';
-import { CreateCharacterComponent } from './create-character/create-character.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +20,6 @@ import { AppRoutingModule } from './app-routing.module';
     TabsComponent,
     ListComponent,
     ItemComponent,
-    CreateCharacterComponent,
     HeaderComponent
   ],
   imports: [

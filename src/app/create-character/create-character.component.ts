@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StarWarService } from '../star-wars.service';
+// import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create-character',
