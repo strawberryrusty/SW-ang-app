@@ -37,6 +37,7 @@ export class StarWarService{
        (data) => {
          console.log(data);
          this.characters = data;
+         this.charactersChanged.next();
        }
      );
     //  this.http.post('https://swapi.dev/api/people', {})
